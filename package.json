@@ -1,0 +1,11 @@
+{
+  "name": "task-tweaker-static",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "openai": "^4.20.0"
+  },
+  "scripts": {
+    "//": "Add any build scripts here if needed in the future, e.g., for Netlify CLI"
+  }
+}

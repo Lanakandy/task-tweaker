@@ -1,0 +1,11 @@
+# netlify.toml
+[build]
+  functions = "netlify/functions" # Specifies the directory for your serverless functions
+  publish = "." # Specifies the directory with your static files (index.html, etc.)
+
+[dev]
+  framework = "#static" # Tells Netlify Dev how to serve your static site
+  publish = "."
+  functions = "netlify/functions"
+  # port = 8888 # Default, can change if needed
+  # targetPort = 3000 # If your static assets were served by another tool

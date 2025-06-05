@@ -1,0 +1,372 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%; /* White */
+    --foreground: 223 30% 21%; /* Dark Navy #2C3440 */
+
+    --card: 0 0% 100%; /* White card background */
+    --card-foreground: 223 30% 21%; /* Dark Navy text on card */
+
+    --popover: 0 0% 100%; /* White popover background */
+    --popover-foreground: 223 30% 21%; /* Dark Navy text on popover */
+
+    --primary: 7 100% 65%;     /* Coral #FF5E4D */
+    --primary-foreground: 0 0% 100%; /* White text on coral */
+
+    --secondary: 0 0% 96.1%; /* White */
+    --secondary-foreground: 223 30% 21%; /* Dark Navy */
+
+    --muted: 0 0% 96.1%; /* White */
+    --muted-foreground: 223 30% 45%; /* Lighter Navy */
+
+    --accent: 7 100% 65%;      /* Coral #FF5E4D */
+    --accent-foreground: 0 0% 100%; /* White */
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 89.8%; /* Default light border (white) */
+    --input: 0 0% 89.8%; /* Default light input border (white) */
+
+    --ring: 7 100% 65%;       /* Coral #FF5E4D */
+    
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+    
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 223 30% 21%; /* Dark Navy #2C3440 */
+    --foreground: 0 0% 100%;   /* White #FFFFFF */
+
+    --card: 223 30% 25%;       /* Slightly Lighter Navy for card background */
+    --card-foreground: 0 0% 100%; /* White text on card */
+
+    --popover: 223 30% 25%;    /* Lighter Navy for popovers (e.g. Select dropdown) */
+    --popover-foreground: 0 0% 100%; /* White text on popovers */
+
+    --primary: 7 100% 65%;     /* Coral #FF5E4D */
+    --primary-foreground: 0 0% 100%; /* White text on coral */
+
+    --secondary: 223 30% 30%;   /* Lighter Navy for secondary elements */
+    --secondary-foreground: 0 0% 100%; /* White */
+
+    --muted: 223 30% 28%;      /* Muted Navy */
+    --muted-foreground: 0 0% 70%; /* White #FFFFFF for muted text */
+
+    --accent: 7 100% 65%;      /* Coral #FF5E4D */
+    --accent-foreground: 0 0% 100%; /* White */
+
+    --destructive: 0 70% 50%; /* A bit brighter red for dark mode destructive */
+    --destructive-foreground: 0 0% 100%; /* White */
+
+    --border: 0 0% 100%; /* White border for elements using border-border */
+    --input: 0 0% 100%; /* White border for inputs (when using border-input class) */
+
+    --ring: 7 100% 65%;       /* Coral #FF5E4D focus ring */
+
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+
+    --sidebar-background: 223 30% 18%; /* Darker navy for sidebar */
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 7 100% 65%; /* Coral for sidebar primary */
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 223 30% 28%; /* Muted navy for sidebar accent */
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 223 30% 30%;
+    --sidebar-ring: 7 100% 65%;
+  }
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+  }
+}
+
+/* Apply dark mode by default - copy dark variables to root */
+:root {
+  color-scheme: dark;
+  --background: 223 30% 21%; /* Dark Navy #2C3440 */
+  --foreground: 0 0% 100%;   /* White #FFFFFF */
+
+  --card: 223 30% 25%;       /* Slightly Lighter Navy for card background */
+  --card-foreground: 0 0% 100%; /* White text on card */
+
+  --popover: 223 30% 25%;    /* Lighter Navy for popovers */
+  --popover-foreground: 0 0% 100%; /* White text on popovers */
+
+  --primary: 7 100% 65%;     /* Coral #FF5E4D */
+  --primary-foreground: 0 0% 100%; /* White text on coral */
+
+  --secondary: 223 30% 30%;   /* Lighter Navy for secondary elements */
+  --secondary-foreground: 0 0% 100%; /* White */
+
+  --muted: 223 30% 28%;      /* Muted Navy */
+  --muted-foreground: 0 0% 70%; /* White #FFFFFF for muted text */
+
+  --accent: 7 100% 65%;      /* Coral #FF5E4D */
+  --accent-foreground: 0 0% 100%; /* White #FFFFFF */
+
+  --destructive: 0 70% 50%;
+  --destructive-foreground: 0 0% 100%;
+
+  --border: 0 0% 100%; /* White border */
+  --input: 0 0% 100%; /* White border for inputs */
+
+  --ring: 7 100% 65%;       /* White #FFFFFF focus ring */
+
+  --chart-1: 220 70% 50%;
+  --chart-2: 160 60% 45%;
+  --chart-3: 30 80% 55%;
+  --chart-4: 280 65% 60%;
+  --chart-5: 340 75% 55%;
+  --radius: 0.5rem;
+
+  --sidebar-background: 223 30% 18%;
+  --sidebar-foreground: 0 0% 95%;
+  --sidebar-primary: 7 100% 65%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 223 30% 28%;
+  --sidebar-accent-foreground: 0 0% 95%;
+  --sidebar-border: 223 30% 30%;
+  --sidebar-ring: 7 100% 65%;
+}
+
+header {
+    background-color: hsl(var(--card));
+    color: hsl(var(--card-foreground));
+    padding: 15px 30px;
+    text-align: left;
+    border-bottom: 2px solid hsl(var(--primary));
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8em;
+    color: hsl(var(--card-foreground));
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    gap: 20px;
+}
+
+.input-section {
+    flex: 1;
+    min-width: 350px;
+    background-color: hsl(var(--card));
+    color: hsl(var(--card-foreground));
+    padding: 25px;
+    border-radius: var(--radius);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.output-section {
+    flex: 1.5;
+    min-width: 400px;
+    padding: 25px;
+    background-color: transparent;
+    border-radius: var(--radius);
+}
+
+h2 {
+    color: hsl(var(--foreground));
+    margin-top: 0;
+    border-bottom: 1px solid hsl(var(--primary));
+    padding-bottom: 10px;
+    font-weight: 500;
+}
+
+.subtitle {
+    font-size: 0.9em;
+    color: hsl(var(--muted-foreground));
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: hsl(var(--card-foreground));
+}
+
+.form-group label .icon {
+    margin-right: 8px;
+    color: hsl(var(--muted-foreground));
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid hsl(var(--primary));
+    border-radius: var(--radius);
+    background-color: #ffffff; 
+    color: #2C3440; 
+    box-sizing: border-box;
+    font-size: 0.95em;
+    font-family: inherit; 
+}
+
+.form-group input[type="text"]::placeholder,
+.form-group textarea::placeholder {
+    color: #888888;
+    font-size: 0.95em; 
+    font-family: inherit; 
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="number"]:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: hsl(var(--primary));
+    box-shadow: 0 0 0 2px hsl(var(--primary) / 0.2);
+}
+
+/* Ensure select dropdown options are readable */
+.form-group select option {
+    background-color: #ffffff;
+    color: #2C3440;
+}
+
+.form-group small {
+    display: block;
+    margin-top: 5px;
+    font-size: 0.8em;
+    color: hsl(var(--muted-foreground));
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.half-width {
+    flex: 1;
+}
+
+button[type="submit"], .copy-btn, .download-btn {
+    background-color: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    padding: 12px 20px;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button[type="submit"] .icon {
+    margin-right: 8px;
+}
+
+button[type="submit"]:hover {
+    background-color: hsl(var(--primary) / 0.9);
+}
+
+.variations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.variation-card {
+    background-color: hsl(var(--card));
+    color: hsl(var(--card-foreground));
+    padding: 20px;
+    border-radius: var(--radius);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    border: 1px solid hsl(var(--border));
+}
+
+.variation-card h3 {
+    margin-top: 0;
+    font-size: 1.1em;
+    color: hsl(var(--card-foreground));
+}
+
+.variation-card h3 strong {
+    font-weight: 700;
+}
+
+.variation-card p {
+    font-size: 0.9em;
+    margin-bottom: 15px;
+}
+
+.card-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.copy-btn, .download-btn {
+    background-color: hsl(var(--secondary));
+    color: hsl(var(--secondary-foreground));
+    padding: 8px 15px;
+    font-size: 0.9em;
+}
+
+.copy-btn:hover, .download-btn:hover {
+    background-color: hsl(var(--secondary) / 0.8);
+}
+
+#loadingIndicator p {
+    color: hsl(var(--foreground));
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    .input-section, .output-section {
+        flex: 1 1 100%;
+    }
+    .form-row {
+        flex-direction: column;
+    }
+    .half-width {
+        width: 100%;
+    }
+}
